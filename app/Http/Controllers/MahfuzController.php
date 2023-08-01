@@ -8,15 +8,7 @@ use Illuminate\Http\Request;
 class MahfuzController extends Controller
 {
     public function index(){
-        $comments = Comment::all();
-        return view('mahfuz',compact('comments'));
-    }
-    public function commentstore(Request $request){
-        $comment = new Comment;
-        $comment->name = $request->name;
-        $comment->comment = $request->comment;
-        $comment->save();
-        return redirect()->back();
+        return view('mahfuz');
     }
     public function store(Request $request){
         $contacts = new Contact;
@@ -26,5 +18,8 @@ class MahfuzController extends Controller
         $contacts->message = $request->message;
         $contacts->save();
         return redirect()->back();
+    }
+    public function dashboard(){
+        return view('dashboard');
     }
 }
